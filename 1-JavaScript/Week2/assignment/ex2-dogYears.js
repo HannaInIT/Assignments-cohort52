@@ -15,10 +15,15 @@ calculate it!
    ages.
 -----------------------------------------------------------------------------*/
 
-export function calculateDogAge(/* TODO parameter(s) go here */) {
-  // TODO complete this function
+export function calculateDogAge(age) {
+  const dogYears = age * 7;
+  return `Your doggie is ${dogYears} years old in dog years!`;
 }
+console.log(calculateDogAge(11));
+console.log(calculateDogAge(5));
+console.log(calculateDogAge(3));
 
+//Main
 function main() {
   console.log(calculateDogAge(1)); // -> "Your doggie is 7 years old in dog years!"
   console.log(calculateDogAge(2)); // -> "Your doggie is 14 years old in dog years!"
