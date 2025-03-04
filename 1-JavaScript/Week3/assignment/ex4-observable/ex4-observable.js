@@ -15,11 +15,14 @@ Complete the `createObservable()` function as follows:
 export function createObservable() {
   const subscribers = [];
   return {
-    subscribe(subscriber) {
-      // TODO complete this function
+    subscribe(subscriber) { 
+      subscribers.push(subscriber);
     },
-    notify(message) {
-      // TODO complete this function
+    notify(message) { 
+      subscribers.forEach(subscriber => {
+        subscriber(message);
+      });
+      
     },
   };
 }
