@@ -9,14 +9,14 @@
     ✅ should call function `selectRandomly` for each of its arguments (1 ms)
     ✅ `numKids` should be an array initialized with 5 elements
     ✅ `locations` should be an array initialized with 5 elements
-    ✅ `partnerNames` should be an array initialized with 5 elements (1 ms)
+    ✅ `partnerNames` should be an array initialized with 5 elements
     ✅ `jobTitles` should be an array initialized with 5 elements
-    ✅ should tell the fortune by randomly selecting array values (1 ms)
+    ✅ should tell the fortune by randomly selecting array values
 
 Test Suites: 1 passed, 1 total
 Tests:       10 passed, 10 total
 Snapshots:   0 total
-Time:        0.89 s, estimated 1 s
+Time:        0.931 s
 Ran all test suites matching /C:\\Users\\Hanna\\hackyourfuture\\Assignments-cohort52\\.dist\\1-JavaScript\\Week2\\unit-tests\\ex3-tellFortune.test.js/i.
 No linting errors detected.
 No spelling errors detected.

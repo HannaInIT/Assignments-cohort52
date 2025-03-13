@@ -33,30 +33,28 @@ function calculateTotalPrice(cartForParty) {
   for (let item in cartForParty) {
     total += cartForParty[item];
   }
-  return `Total: €${total.toFixed(2)}.`;
+  return `Total: €${total.toFixed(2)}`;
 }
 
 // ! Test functions (plain vanilla JavaScript)
 function test1() {
-  console.log('\nTest 1: calculateTotalPrice should take one parameter');
-  if (calculateTotalPrice.length === 1) {
-    console.log('Test 1 passed: the function takes one parameter');
-  } else {
-    console.log('Test 1 failed: the function does not take one parameter');
-  }
+  console.assert('\nTest 1: calculateTotalPrice should take one parameter');
+  console.assert(
+    calculateTotalPrice.length === 1,
+    'Test 1 failed: The function should take one parameter'
+  );
 }
 
 function test2() {
-  console.log('\nTest 2: return correct output when passed cartForParty');
-  const result = calculateTotalPrice(cartForParty);
-  const expectedTotal = Object.values(cartForParty)
-    .reduce((sum, price) => sum + price, 0)
-    .toFixed(2);
-  if (result === `Total: €${expectedTotal}.`) {
-    console.log('Test 2 passed');
-  } else {
-    console.log('Test 2 failed');
-  }
+  console.assert('\nTest 2: return correct output when passed cartForParty');
+
+  const expected = 'Total: €10.90';
+  const actual = calculateTotalPrice(cartForParty);
+
+  console.assert(
+    expected === actual,
+    `Test 2 failed: Expected "${expected}", but got "${actual}"`
+  );
 }
 
 function test() {
