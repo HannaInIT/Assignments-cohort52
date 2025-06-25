@@ -20,39 +20,47 @@ Full description at: https://github.com/HackYourFuture/Assignments/tree/main/2-B
 
    https://media1.tenor.com/images/2de63e950fb254920054f9bd081e8157/tenor.gif
 -----------------------------------------------------------------------------*/
+
+const walkingImage = 'http://www.anniemation.com/clip_art/images/cat-walk.gif';
+const dancingImage =
+  'https://media1.tenor.com/images/2de63e950fb254920054f9bd081e8157/tenor.gif';
+
+const STEP = 10;
+
+const img = document.querySelector('img');
+let position = -img.offsetWidth;
+let isDancing = false;
+let hasDanced = false;
+
+img.style.position = 'absolute';
+img.style.left = position + 'px';
+
 function catWalk() {
-  const catImg = document.querySelector('img');
-  catImg.style.left = '0px';
-  let dancing = false;
+  if (!isDancing) {
+    position += STEP;
+    img.style.left = position + 'px';
 
-  function moveCat() {
-    let catLeft = parseInt(catImg.style.left);
-    const screenWidth = window.innerWidth;
-    const catSize = catImg.width;
+    const catCenter = position + img.offsetWidth / 2;
+    const screenCenter = window.innerWidth / 2;
+    if (!hasDanced && catCenter >= screenCenter) {
+      hasDanced = true;
+      isDancing = true;
+      img.src = dancingImage;
 
-    if (!dancing) {
-      catLeft = catLeft + 10;
-      catImg.style.left = catLeft + 'px';
-
-      if (catLeft > screenWidth - catSize) {
-        catImg.style.left = '0px';
-      }
-
-      if (catLeft >= screenWidth / 2 - catSize / 2) {
-        dancing = true;
-        catImg.src =
-          'https://media1.tenor.com/images/2de63e950fb254920054f9bd081e8157/tenor.gif';
-
-        setTimeout(() => {
-          catImg.src =
-            'http://www.anniemation.com/clip_art/images/cat-walk.gif';
-          dancing = false;
-        }, 5000);
-      }
+      setTimeout(() => {
+        img.src = walkingImage;
+        isDancing = false;
+      }, 5000);
     }
   }
 
-  window.onload = function () {
-    setInterval(moveCat, 50);
-  };
+  if (position > window.innerWidth) {
+    position = -img.offsetWidth;
+    hasDanced = false;
+    img.style.left = position + 'px';
+  }
 }
+
+window.addEventListener('load', () => {
+  setInterval(catWalk, 50);
+});
